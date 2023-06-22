@@ -37,8 +37,9 @@ ul > li > a:hover {
 
 #logo {
     color:#C2B4AB;
-    font-size: 18px;
+    font-size: 25px;
     padding-left:40px;
     margin-right:auto;
     display: flex;
+    font-family: 'Montserrat', sans-serif;
 }
