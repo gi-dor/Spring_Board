@@ -11,6 +11,11 @@
   <title>fastcampus</title>
   <link rel="stylesheet" href="<c:url value='/css/menu.css'/>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+  </style>
+
 </head>
 <body>
 <div id="menu">
