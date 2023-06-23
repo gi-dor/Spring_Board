@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fastcampus.ch4.dao.BoardMapper">
+
+<!--게시판에서 게시물 1개 읽어오기-->
+    <select id="select" parameterType="int" resultType="BoardDto">
+        select bno,title,content,writer,view_cnt,comment_cnt,reg_date
+        from board
+        where bno = #{bno}
+    </select>
+
+<!--게시판에서 게시물 전체 ~ 읽어오기-->
+    <select id="selectAll" resultType="BoardDto">
+        select bno, title , content , writer , view_cnt , comment_cnt ,reg_date
+        from board
+    </select>
+
+<!--    갯수 세기 , *부분에 title , contenet -->
+
+    <select id="count" resultType= "int">
+        select count(*) from board;
+    </select>
+
+
+    <insert id="insert" parameterType="BoardDto">
+        insert into board  (title,content,writer) values (#{title} , #{content} , #{writer})
+    </insert>
+
+
+    <update id="update" parameterType="BoardDto">
+        update board
+        set title = #{title} , content = #{content} , up_date = now()
+        where bno = #{bno} and writer = #{writer}
+    </update>
+
+    <update id="increaseViewCnt" parameterType="int">
+        update board
+        set view_cnt = view_cnt+1
+        where bno = #{bno}
+    </update>
+    
+    <update id="updateCommentCnt" parameterType="int">
+        update board
+        set comment_cnt = comment_cnt + #{comment_cnt}
+        where bno = #{bno}
+    </update>
+
+
+<!--    삭제 , id,작성자로-->
+
+    <delete id="delete" parameterType="map">
+  delete from board where bno = #{bno} and writer = #{writer}   <!--bno가 key,가되고 ,writer가 value가됨-->
+    </delete>
+
+  <!--전부 삭제-->
+    <delete id="deleteAll">
+        delete from board
+    </delete>
+
+
+<!--    <select id="selectPage" parameterType="map" resultType="BoardDto">-->
+<!--        SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date-->
+<!--        ORDER BY reg_date DESC, bno DESC-->
+<!--        LIMIT #{offset}, #{pageSize}-->
+<!--    </select>-->
+
+
+
+
+
+</mapper>
