@@ -155,6 +155,8 @@ public class PageHandler {
                 ", endPage=" + endPage +
                 ", showPrev=" + showPrev +
                 ", showNext=" + showNext +
+                ", showFirst=" + showFirst +
+                ", showLast=" + showLast +
                 '}';
     }
 }
