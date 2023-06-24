@@ -15,6 +15,7 @@
     <select id="selectAll" resultType="BoardDto">
         select bno, title , content , writer , view_cnt , comment_cnt ,reg_date
         from board
+        order by bno desc
     </select>
 
 <!--    갯수 세기 , *부분에 title , contenet -->
@@ -59,12 +60,19 @@
         delete from board
     </delete>
 
+   <!--관리자만 삭제할수 있음-->
+    <delete id="deleteForAdmin" parameterType="map">
+        delete from board where bno = #{bno}
+    </delete>
 
-<!--    <select id="selectPage" parameterType="map" resultType="BoardDto">-->
-<!--        SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date-->
-<!--        ORDER BY reg_date DESC, bno DESC-->
-<!--        LIMIT #{offset}, #{pageSize}-->
-<!--    </select>-->
+
+    <select id="selectPage" parameterType="map" resultType="BoardDto">
+        SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date
+        FROM board
+        ORDER BY reg_date DESC, bno DESC
+            LIMIT #{offset}, #{pageSize}
+    </select>
+
 
 
 
