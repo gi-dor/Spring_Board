@@ -19,6 +19,15 @@ public class BoardDto {
         this.writer = writer;
     }
 
+    public BoardDto(Integer bno, String title, String content, String writer, int view_cnt, int comment_cnt, Date reg_date) {
+        this.bno = bno;
+        this.title = title;
+        this.content = content;
+        this.writer = writer;
+        this.view_cnt = view_cnt;
+        this.comment_cnt = comment_cnt;
+        this.reg_date = reg_date;
+    }
 
     @Override
     public boolean equals(Object o) {

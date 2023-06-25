@@ -1,6 +1,7 @@
 package com.fastcampus.ch4.dao;
 
 import com.fastcampus.ch4.domain.BoardDto;
+import com.fastcampus.ch4.domain.SearchCondition;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -16,14 +17,14 @@ public class BoardDaoImpl implements BoardDao {
 
     String namespace = "com.fastcampus.ch4.dao.BoardMapper.";
 
-//    namespace = sql id를 뜻함
+//      namespace = sql id를 뜻함
 //      리턴타입은 resultType , 없으면 int박음
 //      매개변수 는 # { }   , parameterType
 
     @Override
     public BoardDto select(Integer bno)throws Exception{
       return  session.selectOne(namespace+"select",bno);
-    }
+    } //T selectOne(String statement)
 
     @Override
     public List<BoardDto> selectAll() throws Exception{
@@ -66,24 +67,21 @@ public class BoardDaoImpl implements BoardDao {
         return session.delete(namespace+"deleteAll");
     }
 
+    public List<BoardDto> selectPage(Map map) throws Exception {
+        return session.selectList(namespace + "selectPage", map);
+    } // List<E> selectList(String statement, Object parameter)
+
+
+    public List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception {
+        return session.selectList(namespace+"searchSelectPage", sc);
+    }
 
 
 
+    public int searchResultCnt(SearchCondition sc) throws Exception {
+        return session.selectOne(namespace+"count");
+    }
 
-//    public List<BoardDto> selectPage(Map map) throws Exception {
-//        return session.selectList(namespace+"selectPage", map);
-//    }
-//
-//    public int searchResultCnt(SearchCondition sc) throws Exception {
-//        System.out.println("sc in searchResultCnt() = " + sc);
-//        System.out.println("session = " + session);
-//        return session.selectOne(namespace+"searchResultCnt", sc);
-//    }
-//
-//
-//    public List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception {
-//        return session.selectList(namespace+"searchSelectPage", sc);
-//    }
 
 
 }
