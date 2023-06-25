@@ -19,23 +19,167 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
-    table {
-      margin-left: auto;
-      margin-right: auto;
-      border-collapse: separate;
-      border-spacing: 0;
+    /*table {*/
+    /*  margin-left: auto;*/
+    /*  margin-right: auto;*/
+    /*  border-collapse: separate;*/
+    /*  border-spacing: 0;*/
 
+    /*}*/
+
+    /*th {*/
+    /*  border-top: 1px solid #C2B4AB;*/
+    /*  border-bottom: 1px solid #C2B4AB;*/
+    /*  width: 10%;*/
+    /*  text-align: center;*/
+    /*}*/
+
+    /*td {*/
+    /*  width: 10%;*/
+    /*}*/
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans KR", sans-serif;
     }
 
-    th {
-      border-top: 1px solid #C2B4AB;
-      border-bottom: 1px solid #C2B4AB;
-      width: 10%;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    button,
+    input {
+      border: none;
+      outline: none;
+    }
+
+    .board-container {
+      width: 60%;
+      height: 1200px;
+      margin: 0 auto;
+      /* border: 1px solid black; */
+    }
+    .search-container {
+      background-color: rgb(253, 253, 250);
+      width: 100%;
+      height: 110px;
+      border: 1px solid #ddd;
+      margin-top : 10px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search-form {
+      height: 37px;
+      display: flex;
+    }
+    .search-option {
+      width: 100px;
+      height: 100%;
+      outline: none;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      color: gray;
+    }
+
+    .search-option > option {
       text-align: center;
     }
 
+    .search-input {
+      color: gray;
+      background-color: white;
+      border: 1px solid #ccc;
+      height: 100%;
+      width: 300px;
+      font-size: 15px;
+      padding: 5px 7px;
+    }
+    .search-input::placeholder {
+      color: gray;
+    }
+
+    .search-button {
+      /* 메뉴바의 검색 버튼 아이콘  */
+      width: 20%;
+      height: 100%;
+      background-color: rgb(22, 22, 22);
+      color: rgb(209, 209, 209);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+    .search-button:hover {
+      color: rgb(165, 165, 165);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border-top: 2px solid rgb(39, 39, 39);
+    }
+
+    tr:nth-child(even) {
+      background-color: #f0f0f070;
+    }
+
+    th,
     td {
-      width: 10%;
+      width:300px;
+      text-align: center;
+      padding: 10px 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    td {
+      color: rgb(53, 53, 53);
+    }
+
+    .no      { width:150px;}
+    .title   { width:50%;  }
+
+    td.title   { text-align: left;  }
+    td.writer  { text-align: left;  }
+    td.viewcnt { text-align: right; }
+
+    td.title:hover {
+      text-decoration: underline;
+    }
+
+    .paging {
+      color: black;
+      width: 100%;
+      align-items: center;
+    }
+
+    .page {
+      color: black;
+      padding: 6px;
+      margin-right: 10px;
+    }
+    .paging-active {
+      background-color: rgb(216, 216, 216);
+      border-radius: 5px;
+      color: rgb(24, 24, 24);
+    }
+
+    .paging-container {
+      width:100%;
+      height: 70px;
+      display: flex;
+      margin-top: 50px;
+      margin : auto;
+    }
+
+
+    .btn-write:hover {
+      cursor: pointer; /* Mouse pointer on hover */
+      text-decoration: underline;
     }
 
   </style>
@@ -62,7 +206,7 @@
   let msg = "${msg}"
   if(msg == "Write_OK") alert("등록 되었습니다.");
   if(msg == "DELETE_OK") alert("성공적으로 삭제가 되었습니다.");
-  if(msg == "DELETE_ERROR") alert("삭제에 실패했습니다..");
+  if(msg == "DELETE_ERROR") alert("삭제에 실패 했습니다..");
 </script>
 
 
@@ -95,7 +239,7 @@
 
 <div>
   <p>
-  <button type="button" id="writeBtn"  onclick="location.href = '<c:url value = "/board/write"/>'">글쓰기</button>
+  <button type="button" id="writeBtn00"  onclick="location.href = '<c:url value = "/board/write"/>'">글쓰기</button>
   </p>
 </div>
 
