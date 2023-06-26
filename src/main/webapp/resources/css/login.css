@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Sans+KR&display=swap');
+.kor{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+.eng{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*기존꺼 가져옴 깃허브꺼 아님*/
+
+
+* { box-sizing:border-box; }
+a { text-decoration: none; }
+form {
+    width:30em;
+    height: 50em;
+    display : flex;
+    flex-direction: column;
+    align-items:center;
+    position : absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) ;
+    border: 1px solid #C2B4AB;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #EFE7E3;
+    margin-top: -10px;
+}
+input[type='text'], input[type='password'] {
+    width: 300px;
+    height: 40px;
+    border : 1px solid #EFE7E3;
+    border-radius:5px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+button {
+    background-color:#C2B4AB;
+    width:300px;
+    height:50px;
+    font-size: 17px;
+    border : none;
+    border-radius: 5px;
+    margin : 20px 0 30px 0;
+    cursor: pointer; /* Mouse pointer on hover */
+    text-decoration: underline;
+}
+#title {
+    font-size : 4em;
+    margin: 5px;
+    margin-bottom: 0.5em;
+    font-family: 'Montserrat', sans-serif;
+}
+#msg {
+    height: 1.5em;
+    text-align:center;
+    font-size:1em;
+    color:gray;
+    margin-bottom: 10px;
+}
+
+#imgcontainer{
+    text-align: center;
+    position: relative;
+    background-color: #EFE7E3;
+}
+img.avatar {
+    width: 60%;
+    border-radius: 50%;
+}
+.nav_bar{
+    margin: 30px 150px; /*위아래30 , 좌우150 */
+    display: flex;
+    flex-direction: column;
+}
